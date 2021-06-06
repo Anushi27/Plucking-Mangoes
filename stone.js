@@ -19,4 +19,4 @@ class Stone{
         image(this.image, 0, 0, this.radius, this.radius);
         pop();
     }
-}
+} 
