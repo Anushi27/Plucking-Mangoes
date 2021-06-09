@@ -1,29 +1,29 @@
-class Tree{
-    constructor(x,y,width,height){
+class tree
+{
+	constructor(x,y)
+	{
+		this.x=x;
+		this.y=y;
+		this.treeWidth=500;
+		this.treeHeight=500;
+		this.treeThickness=10;
+		
+		this.image=loadImage("tree.png")
+		this.bottomBody=Bodies.rectangle(this.x, this.y, this.treeWidth, this.treeThickness, {isStatic:true})
+		World.add(world, this.bottomBody)
 
-        var options = {
-            'isStatic':true
-        }
-        this.x=x
-        this.y=y
-        this.height=height
-        this.width=width
+	}
+	
+	display()
+	{
+			var posBottom=this.bottomBody.position;
+			push()
+			translate(posBottom.x, posBottom.y+10);
+			fill(255)
+			imageMode(CENTER);
+			image(this.image, 0,-this.treeHeight/2,this.treeWidth, this.treeHeight)
+			pop()
+			
+	}
 
-        this.body = Bodies.rectangle(x, y, width, height,options);
-
-        this.image=loadImage("tree.png");
-      
-        World.add(world, this.body);
-        
-    }
-
-    display(){
-      push();
-      var pos= this.body.position
-      translate(pos.x, pos.y);
-      //rotate(angle);
-      imageMode(CENTER);
-      image(this.image,0, 0, this.width, this.height);
-      pop();
-    }
 }
